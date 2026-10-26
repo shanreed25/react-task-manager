@@ -4,7 +4,7 @@ import type { TaskItemProps, TaskStatus } from "../../types";
 function TaskItem({task, onStatusChange, onDelete}: TaskItemProps){
     return(
         <>
-        <h2>Task Item</h2>
+        {/* <h2>Task Item</h2> */}
         <p>Task: {task.title}</p>
         <select
         value={task.status}//controls which option is shown as selected
@@ -30,8 +30,6 @@ function TaskItem({task, onStatusChange, onDelete}: TaskItemProps){
         {/* using a arrow function allows it to call onDelete with 
         this task's id when the button is clicked */}
         <button onClick={() => onDelete(task.id)}>DELETE</button>
-
-        <button>DELETE</button>
         </>
     )
 }
