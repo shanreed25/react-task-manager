@@ -6,7 +6,10 @@ function TaskItem({task, onStatusChange, onDelete}: TaskItemProps){
         <>
         {/* <h2>Task Item</h2> */}
         <p>Task: {task.title}</p>
-        <select
+        {/* A form field element should have an ID or name attribute
+         and because this will create a dropdown for each task the id must be unique
+          */}
+        <select id={`task-${task.id}-status`} name="task-status"
         value={task.status}//controls which option is shown as selected
         //onChange runs every time the a different option is selected
             //TypeScript knows the event object's type automatically
