@@ -15,11 +15,6 @@ function TaskList({tasks = mockTasks, onStatusChange, onDelete}: TaskListProps){
             // React uses each key to work out which TaskItem disappeared
             key={task.id}
             task={task} 
-
-            //Prop Drilling :
-                // TaskList does not handle the events It passes the
-                // The parent component passes functions to TaskList
-                //  TaskList passes them down to TaskItem.
             onStatusChange={onStatusChange}
             onDelete={onDelete} 
             />

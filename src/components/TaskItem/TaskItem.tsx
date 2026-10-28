@@ -4,11 +4,7 @@ import type { TaskItemProps, TaskStatus } from "../../types";
 function TaskItem({task, onStatusChange, onDelete}: TaskItemProps){
     return(
         <>
-        {/* <h2>Task Item</h2> */}
         <p>Task: {task.title}</p>
-        {/* A form field element should have an ID or name attribute
-         and because this will create a dropdown for each task the id must be unique
-          */}
         <select id={`task-${task.id}-status`} name="task-status"
         value={task.status}//controls which option is shown as selected
         //onChange runs every time the a different option is selected
@@ -27,11 +23,6 @@ function TaskItem({task, onStatusChange, onDelete}: TaskItemProps){
             <option value="in-progress">In Progress</option>
             <option value="completed">Completed</option>
         </select>
-
-        {/* using onClick={onDelete(task.id)}, would make onDelete
-          run immediately during every render, not on click */}
-        {/* using a arrow function allows it to call onDelete with 
-        this task's id when the button is clicked */}
         <button onClick={() => onDelete(task.id)}>DELETE</button>
         </>
     )
