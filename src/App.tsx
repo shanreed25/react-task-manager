@@ -28,7 +28,7 @@ function App() {
       // return a new copy of the task with the new status
       //otherwise return the task as is
 
-      // updater form: React passes in the latest state as prev
+      // updater function form: React passes in the latest state as prev
       //...task copies every property, then status: newStatus replaces the old status
       setTasks(prev => prev.map((task) => //creates a new array where only one task changed
         task.id == taskId ? {...task, status : newStatus} : task
