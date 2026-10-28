@@ -6,8 +6,8 @@ import type { Task, TaskStatus } from "./types";
 function App() {
     //Xadd tasks to state
     //Xpass state to TaskList
-    //complete the handleStatusChange Function
-    //complete the deleteStatus function
+    //Xcomplete the handleStatusChange Function
+    //Xcomplete the deleteStatus function
 
     //I do not need to use a <Task[]> type argument here 
     //because mockTasks is already typed as Task[] in mockTasks.ts
@@ -31,7 +31,7 @@ function App() {
       // updater function form: React passes in the latest state as prev
       //...task copies every property, then status: newStatus replaces the old status
       setTasks(prev => prev.map((task) => //creates a new array where only one task changed
-        task.id == taskId ? {...task, status : newStatus} : task
+        task.id === taskId ? {...task, status : newStatus} : task
         )
       )
       console.log("***Status Changed***");
@@ -39,7 +39,14 @@ function App() {
   };
 
     //parameter types must match onDelete in types file
+    //filter returns a new array with only the items 
+    // that pass the test, and it leaves the original alone
     function handleDelete(taskId: string) {
+      //keep every task whose id is not the one being deleted
+        setTasks(prev => prev.filter((task) => 
+        task.id !== taskId 
+        )
+      )
       console.log("***Task Deleted***");
       console.log(`Deleted Task Id: ${taskId}`);
     }

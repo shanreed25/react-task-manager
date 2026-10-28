@@ -8,8 +8,8 @@
 
 - Data flows down and the events flow up
 - The mock task is a plain array, not React state
-- If you change a dropdown, the console logs the task id and the new status. The dropdown then goes back to the old value. That's because it's a controlled `<select>` `(value={task.status})`, and nothing updates `task.status` yet.
-- If you click DELETE, the console logs the id, but the task stays on the page for because there is no logic to delete yet
+- If you change a dropdown, the console logs the task id and the new status and the status changes
+- If you click DELETE, the console logs the id, and the task is deleted
 
 
 ```
@@ -28,14 +28,21 @@ main.tsx
 - [ ] Add conditional rendering based on task properties
 
 #### App
-- Defines handleStatusChange and handleDelete. Right now both only console.log the task id (and the new status)
-- Renders <TaskList> and passes it mockTasks plus the two handlers. The handlers are passed by reference (onDelete={handleDelete}, not handleDelete()), as your comment explains
+- Defines and implements `handleStatusChange()` and `handleDelete()`. 
+- Renders `<TaskList>` and passes the tasks state plus the two handlers to it
+- Tasks status can now be changed
+     - Task are stored in state and `handleStatusChange()` now updates the state
+     - mockTasks is now only the starting value, the real list is the tasks state
+     - `<Task[]>` is a type argument that gives the state its type, so tasks is a `Task[]` and setTasks only accepts a `Task[]`.
+     - React keeps this value between renders, and calling `setTasks()` triggers a re-render
+- Tasks can now be deleted and `handleDelete()` now updates state
 
 #### TaskList
 > Receives tasks and two callbacks
 
-- Uses tasks.map(...) to render one TaskItem per task, with key={task.id} so React can track each item
-- It doesn't handle events itself. It passes onStatusChange and onDelete down to each TaskItem, which is prop drilling
+- Uses `tasks.map(...)` to render one `TaskItem` per task, with `key={task.id}` so React can track each item
+- It doesn't handle events itself. It passes onStatusChange and `onDelete` down to each `TaskItem`, which is prop drilling
+- `TaskList` now displays whatever is in state, so when the state changes, the list on screen changes too.
 
 
 #### Task Item

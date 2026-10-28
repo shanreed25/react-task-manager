@@ -11,7 +11,9 @@ function TaskList({tasks = mockTasks, onStatusChange, onDelete}: TaskListProps){
         <h2>Task List</h2>
         {tasks.map((task) => (
             <TaskItem 
-            key={task.id} 
+            //this matter because the length can change if a task is deleted
+            // React uses each key to work out which TaskItem disappeared
+            key={task.id}
             task={task} 
 
             //Prop Drilling :
