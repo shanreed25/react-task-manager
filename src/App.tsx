@@ -7,6 +7,7 @@ import type { Task, TaskStatus } from "./types";
 function App() {
 
     const [tasks, setTasks] = useState<Task[]>(mockTasks)
+    const [filters, setFilters] = useState<{status?: TaskStatus, priority?: 'low' | 'medium' | 'high'}>({})
 
     function handleStatusChange(taskId: string, newStatus: TaskStatus){
 
@@ -27,12 +28,26 @@ function App() {
       console.log(`Deleted Task Id: ${taskId}`);
     }
 
+    function handleFilterChange(newFilters:{
+      status?: TaskStatus, 
+      priority?: 'low' | 'medium' | 'high'
+    }){
+      setFilters(newFilters)
+        console.log("filtering", newFilters);
+    }
+
+
+    const filteredTasks = tasks.filter((task) => 
+        (!filters.status || task.status === filters.status) &&
+        (!filters.priority || task.priority === filters.priority)
+      )
+
   return (
     <>
       <h1>Task Manager</h1>
-      <TaskFilter onFilterChange={}/>
+      <TaskFilter onFilterChange={handleFilterChange}/>
       <TaskList 
-      tasks={tasks}
+      tasks={filteredTasks}
       onStatusChange={handleStatusChange}
       onDelete={handleDelete}
        />
