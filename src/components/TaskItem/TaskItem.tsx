@@ -1,13 +1,25 @@
-import type { TaskItemProps, TaskStatus } from "../../types";
+import type { Task, TaskItemProps, TaskStatus } from "../../types";
 
 function TaskItem({ task, onStatusChange, onDelete }: TaskItemProps) {
+    function getPriorityStyles(priority: Task["priority"]){
+        switch (priority) {
+        case "low":
+            return "text-green-600";
+        case "medium":
+            return "text-amber-500";
+        case "high":
+            return "text-red-600";
+        default:
+            return "text-yellow-500"
+    }
+    }
   return (
     <div className="p-5 border border-slate-100 rounded-lg flex justify-between gap-5 items-start">
       <div className="flex flex-col gap-3">
         <p>{task.title}</p>
         <p>{task.description}</p>
         <div>
-          <p>Priority: {task.priority}</p>
+          <p className={getPriorityStyles(task.priority)}>Priority: {task.priority}</p>
           <p>Due: {task.dueDate}</p>
         </div>
       </div>
