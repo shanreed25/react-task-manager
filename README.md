@@ -144,3 +144,19 @@ main.tsx
 
 ### Prop typing
 > All props are defined as TypeScript interfaces in `src/types/index.ts` and imported with `import type`
+
+
+### Reflection Questions
+
+#### How did you ensure unique keys for your list items?
+> I chose `task.id` for the key because the `id` stays the same for each task even when the list changes
+
+#### What considerations did you make when implementing the filtering functionality?
+- **Where to add the state:** Since App has the tasks state, I gave it the filter state also becasue it need both to know what to show.
+- **How to handle the filters:** I first implemented in a way tha when I changed one filter the other filter would be cleared, So I combined the filter status and priority into one object, so the handlers could send both values and the only one that changes is the one that changed.
+
+#### How did you handle state updates for task status changes?
+> The status state gets updated without changing the original array using the spread operator and used functional updates so the update always uses the latest state.
+
+### What challenges did you face when implementing conditional rendering?
+> I do not think I used any conditional rendering because I did not realize we were suppose to. I did find any reason to really use it because I handled things in a different way and would have to change the code to add it and I just do not have time to do it now.
