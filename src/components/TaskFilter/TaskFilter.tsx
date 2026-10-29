@@ -12,13 +12,13 @@ function TaskFilter(){
     function handleStatusChange(e: ChangeEvent<HTMLSelectElement>){
         const newStatus = e.target.value
         setStatus(newStatus)
-        console.log(status);
+        console.log(newStatus);
     }
 
     function handlePriorityChange(e: ChangeEvent<HTMLSelectElement>){
         const newPriority = e.target.value
         setPriority(newPriority)
-        console.log(priority);
+        console.log(newPriority);
     }
 
     return(
@@ -26,11 +26,11 @@ function TaskFilter(){
         <h2>Task Filter</h2>
         <div>
             <div>
-                <label id="status">Status</label>
+                <label htmlFor="status">Status</label>
                 <select id="status" onChange={handleStatusChange}>
-                    <option value="">All Statues</option>
+                    <option value="">All Statuses</option>
                     <option value="pending">Pending</option>
-                    <option value="in-progress">In Progess</option>
+                    <option value="in-progress">In Progress</option>
                     <option value="completed">Completed</option>
                 </select>
             </div>

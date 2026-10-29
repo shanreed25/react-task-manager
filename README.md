@@ -36,7 +36,7 @@ main.tsx
      - `<Task[]>` is a type argument that gives the state its type, so tasks is a `Task[]` and setTasks only accepts a `Task[]`.
      - React keeps this value between renders, and calling `setTasks()` triggers a re-render
 - Tasks can now be deleted and `handleDelete()` now updates state
-
+- TaskFilter renders
 #### TaskList
 > Receives tasks and two callbacks
 
@@ -51,6 +51,12 @@ main.tsx
 - The title
 - A `<select>` whose value is `task.status`. Changing it calls `onStatusChange(task.id, newValue)`. The as TaskStatus is needed because `e.target.value` is typed as a plain string
 - A DELETE button that calls `onDelete(task.id)` through an arrow function, so it runs on click and not during render
+
+### Task Filter
+- Added state for both filters
+- Each dropdown gets its own piece of state, and both start as ""
+- Implemented handleStatusChange and handlePriorityChange
+
 
 
 
