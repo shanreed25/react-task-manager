@@ -13,6 +13,21 @@ function TaskItem({ task, onStatusChange, onDelete }: TaskItemProps) {
             return "text-yellow-500"
     }
     }
+
+    function getStatusStyles(status: TaskStatus): string {
+        switch (status) {
+        case "pending":
+            return "bg-yellow-100 text-yellow-800";
+        case "in-progress":
+            return "bg-white text-blue-700";
+        case "completed":
+            return "bg-white text-green-700";
+        default:
+            return "bg-black text-yellow-500"
+    }
+    }
+
+
   return (
     <div className="p-5 border border-slate-100 rounded-lg flex justify-between gap-5 items-start">
       <div className="flex flex-col gap-3">
@@ -40,7 +55,7 @@ function TaskItem({ task, onStatusChange, onDelete }: TaskItemProps) {
             //since the dropdown only offers the allowed statues this is safe
             onStatusChange(task.id, e.target.value as TaskStatus)
           }
-          className="cursor-pointer bg-white text-blue-700"
+          className={`${getStatusStyles(task.status)} cursor-pointer rounded-md px-2 py-1`}
         >
           <option value="pending">Pending</option>
           <option value="in-progress">In Progress</option>
