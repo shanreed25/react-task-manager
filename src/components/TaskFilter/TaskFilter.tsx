@@ -32,12 +32,18 @@ function TaskFilter({onFilterChange}: TaskFilterProps){
 
 
     return(
-        <div>
-        <h2>Task Filter</h2>
-        <div>
-            <div>
-                <label htmlFor="status">Status</label>
-                <select id="status" onChange={handleStatusChange} value={status}>
+        <div className="mb-8">
+        {/* <h2 className="">Task Filter</h2> */}
+        <div className="flex gap-7">
+            <div className="flex flex-col gap-1">
+                <label htmlFor="status" className="text-slate-500 text-sm">Status</label>
+                <select 
+                id="status" 
+                onChange={handleStatusChange} 
+                value={status}
+                className="cursor-pointer rounded-md bg-slate-700 p-1"
+
+                >
                     <option value="">All Statuses</option>
                     <option value="pending">Pending</option>
                     <option value="in-progress">In Progress</option>
@@ -45,9 +51,15 @@ function TaskFilter({onFilterChange}: TaskFilterProps){
                 </select>
             </div>
 
-            <div>
-                <label htmlFor="priorities">Priority</label>
-                <select id="priorities" onChange={handlePriorityChange} value={priority}>
+            <div className="flex flex-col gap-1">
+                <label htmlFor="priorities" className="text-slate-500 text-sm">Priority</label>
+                <select 
+                id="priorities" 
+                onChange={handlePriorityChange} 
+                value={priority}
+                className="cursor-pointer rounded-md bg-slate-700 p-1"
+
+                >
                     <option value="">All priorities</option>
                     <option value="high">High</option>
                     <option value="medium">Medium</option>
