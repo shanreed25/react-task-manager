@@ -43,15 +43,17 @@ function App() {
       )
 
   return (
-    <>
-      <h1>Task Manager</h1>
-      <TaskFilter onFilterChange={handleFilterChange}/>
-      <TaskList 
-      tasks={filteredTasks}
-      onStatusChange={handleStatusChange}
-      onDelete={handleDelete}
-       />
-    </>
+    <main className="min-h-screen bg-neutral-800 text-gray-50 p-6">
+      <div className="max-w-5xl mx-auto">
+        <h1 className="text-2xl font-bold mb-6">Task Manager</h1>
+        <TaskFilter onFilterChange={handleFilterChange}/>
+        <TaskList 
+        tasks={filteredTasks}
+        onStatusChange={handleStatusChange}
+        onDelete={handleDelete}
+         />
+      </div>
+    </main>
   )
 }
 

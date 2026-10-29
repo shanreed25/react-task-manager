@@ -46,7 +46,7 @@ function TaskFilter({onFilterChange}: TaskFilterProps){
             </div>
 
             <div>
-                <label id="priorities">Priority</label>
+                <label htmlFor="priorities">Priority</label>
                 <select id="priorities" onChange={handlePriorityChange} value={priority}>
                     <option value="">All priorities</option>
                     <option value="high">High</option>
