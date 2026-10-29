@@ -43,7 +43,7 @@ function App() {
       )
 
   return (
-    <main className="min-h-screen bg-neutral-800 text-gray-50 p-6">
+    <main className="min-h-screen bg-neutral-900 text-gray-50 p-6">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-2xl font-bold mb-6">Task Manager</h1>
         <TaskFilter onFilterChange={handleFilterChange}/>

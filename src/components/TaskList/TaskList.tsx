@@ -7,7 +7,7 @@ import TaskItem from "../TaskItem/TaskItem";
 // but if the parent does not pass a tasks prop, the mock tasks are used instead
 function TaskList({tasks = mockTasks, onStatusChange, onDelete}: TaskListProps){
     return(
-        <>
+        <div className="flex flex-col gap-4">
         <h2>Task List</h2>
         {tasks.map((task) => (
             <TaskItem 
@@ -19,7 +19,7 @@ function TaskList({tasks = mockTasks, onStatusChange, onDelete}: TaskListProps){
             onDelete={onDelete} 
             />
         ))}
-        </>
+        </div>
     )
 }
 

@@ -60,7 +60,7 @@ function TaskFilter({onFilterChange}: TaskFilterProps){
                 className="cursor-pointer rounded-md bg-slate-700 p-1"
 
                 >
-                    <option value="">All priorities</option>
+                    <option value="">All Priorities</option>
                     <option value="high">High</option>
                     <option value="medium">Medium</option>
                     <option value="low">Low</option>
