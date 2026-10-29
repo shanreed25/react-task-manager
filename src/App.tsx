@@ -30,7 +30,7 @@ function App() {
   return (
     <>
       <h1>Task Manager</h1>
-      <TaskFilter />
+      <TaskFilter onFilterChange={}/>
       <TaskList 
       tasks={tasks}
       onStatusChange={handleStatusChange}
